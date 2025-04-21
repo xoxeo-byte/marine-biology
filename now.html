@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marine Biology Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+      color: #014d4e;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: #ffffffcc;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 60, 60, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #006064;
+      font-family: 'Lora', serif;
+      margin-bottom: 40px;
+    }
+
+    .question {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-left: 5px solid #4dd0e1;
+      background-color: #e0f2f1;
+      border-radius: 10px;
+    }
+
+    .question h3 {
+      margin-top: 0;
+      color: #004d40;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    label {
+      cursor: pointer;
+      position: relative;
+      padding-left: 35px;
+      margin: 10px 0;
+      display: inline-block;
+      color: #004d40;
+      font-weight: 500;
+    }
+
+    label input[type="radio"] {
+      display: none;
+    }
+
+    label::before {
+      content: '☆';
+      font-size: 22px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: color 0.3s;
+    }
+
+    label input[type="radio"]:checked + span::before {
+      content: '⭐';
+      color: #ffca28;
+    }
+
+    .submit-btn {
+      background: #00acc1;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      display: block;
+      margin: 30px auto;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #00838f;
+    }
+
+    .explanation {
+      margin-top: 10px;
+      display: none;
+      padding: 10px;
+      background: #e0f7fa;
+      border-left: 4px solid #00acc1;
+      border-radius: 8px;
+      font-size: 0.95em;
+    }
+
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 40px;
+      color: #00796b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Marine Biology Quiz</h1>
+    <form id="quizForm">
+
+      <!-- Question 1 -->
+      <div class="question">
+        <h3>1. What aspect of marine food chains does the professor mainly discuss?</h3>
+        <div class="options">
+          <label><input type="radio" name="q1" value="A"><span> A. food webs</span></label>
+          <label><input type="radio" name="q1" value="B"><span> B. energy transfer</span></label>
+          <label><input type="radio" name="q1" value="C"><span> C. trophic relationships</span></label>
+          <label><input type="radio" name="q1" value="D"><span> D. seafood harvesting</span></label>
+        </div>
+        <div class="explanation" id="ex1"></div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <h3>2. Why is herring healthier for us than tuna?</h3>
+        <div class="options">
+          <label><input type="radio" name="q2" value="A"><span> A. Herring has a more efficient food chain.</span></label>
+          <label><input type="radio" name="q2" value="B"><span> B. Tuna eats more phytoplankton.</span></label>
+          <label><input type="radio" name="q2" value="C"><span> C. Herring lives in coastal areas.</span></label>
+          <label><input type="radio" name="q2" value="D"><span> D. Tuna is predator of herring.</span></label>
+        </div>
+        <div class="explanation" id="ex2"></div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <h3>3. Which of the following is part of the simple marine food chain described?</h3>
+        <div class="options">
+          <label><input type="radio" name="q3" value="A"><span> A. cod fish</span></label>
+          <label><input type="radio" name="q3" value="B"><span> B. whales</span></label>
+          <label><input type="radio" name="q3" value="C"><span> C. phytoplankton</span></label>
+          <label><input type="radio" name="q3" value="D"><span> D. sharks</span></label>
+        </div>
+        <div class="explanation" id="ex3"></div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <h3>4. How does the professor introduce the topic of seafood?</h3>
+        <div class="options">
+          <label><input type="radio" name="q4" value="A"><span> A. He gives an example.</span></label>
+          <label><input type="radio" name="q4" value="B"><span> B. He tells a joke.</span></label>
+          <label><input type="radio" name="q4" value="C"><span> C. He asks a question.</span></label>
+          <label><input type="radio" name="q4" value="D"><span> D. He quotes an expert.</span></label>
+        </div>
+        <div class="explanation" id="ex4"></div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question">
+        <h3>5. Why does the professor say: "And then there are gigantic animals like whale sharks..."?</h3>
+        <div class="options">
+          <label><input type="radio" name="q5" value="A"><span> A. to explain food chains</span></label>
+          <label><input type="radio" name="q5" value="B"><span> B. to remind students of a previous point</span></label>
+          <label><input type="radio" name="q5" value="C"><span> C. to raise a question</span></label>
+          <label><input type="radio" name="q5" value="D"><span> D. to highlight complexity</span></label>
+        </div>
+        <div class="explanation" id="ex5"></div>
+      </div>
+
+      <button type="button" class="submit-btn" onclick="checkAnswers()">Submit Answers</button>
+    </form>
+
+    <footer>Designed for You Guys 🌊💗</footer>
+  </div>
+
+  <script>
+    const answers = {
+      q1: "C",
+      q2: "A",
+      q3: "C",
+      q4: "B",
+      q5: "D"
+    };
+
+    const explanations = {
+      q1: "✅ <span class='correct'>C. trophic relationships</span><br>Explanation: The professor introduces the concept of trophic relationships and uses it to explain marine food chains and food webs.",
+      q2: "✅ <span class='correct'>A. Herring has a more efficient food chain.</span><br>Explanation: Herring live in shorter, more efficient food chains, providing better nutrition.",
+      q3: "✅ <span class='correct'>C. phytoplankton</span><br>Explanation: Phytoplankton are the base of the marine food chain as producers.",
+      q4: "✅ <span class='correct'>B. He tells a joke.</span><br>Explanation: He says “I’m on a seafood diet. I see food, I eat it.”",
+      q5: "✅ <span class='correct'>D. to highlight complexity</span><br>Explanation: He uses the example to show food webs include non-predator giants."
+    };
+
+    function checkAnswers() {
+      for (let i = 1; i <= 5; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const explanation = document.getElementById(`ex${i}`);
+        if (selected) {
+          if (selected.value === answers[`q${i}`]) {
+            explanation.style.display = "block";
+            explanation.innerHTML = explanations[`q${i}`];
+          } else {
+            explanation.style.display = "block";
+            explanation.innerHTML = `❌ Incorrect. ${explanations[`q${i}`]}`;
+          }
+        } else {
+          explanation.style.display = "block";
+          explanation.innerHTML = "⚠️ Please select an answer.";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
